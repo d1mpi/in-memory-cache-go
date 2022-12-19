@@ -1,4 +1,4 @@
-package in_memory_cache
+package cache
 
 type Cache interface {
 	New()
