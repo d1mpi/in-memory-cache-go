@@ -15,12 +15,25 @@ import (
 
 func main() {
 	newCache := cache.New()
-	newCache.Set("Alina", 12)
+	setErr := newCache.Set("Alina", 12)
+	if setErr != nil {
+		fmt.Println(err)
+		return
+	}
 
-	userId := newCache.Get("Alina")
-	fmt.Println(userId)
+	userId, getErr := newCache.Get("Alina")
+	if getErr != nil {
+		fmt.Println(err)
+		return
+	} else {
+		fmt.Println(userId)
+	}
 
-	newCache.Delete("Alina")
+	delErr := newCache.Delete("Alina")
+	if delErr != nil {
+		fmt.Println(err)
+		return
+	}
 
 	userId = newCache.Get("Alina")
 	fmt.Println(userId)
